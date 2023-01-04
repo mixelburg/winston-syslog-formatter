@@ -1,4 +1,4 @@
-import winston, {format} from 'winston'
+import winston from 'winston'
 import {IConfig, StructuredData} from "./types";
 
 
@@ -58,15 +58,3 @@ export const createSyslogFormatter = (config?: IConfig) => {
         )
     )
 }
-
-
-const logger = winston.createLogger({
-    levels: winston.config.syslog.levels,
-    level: 'debug',
-    format: format.combine(
-        format.colorize({message: true}),
-        createSyslogFormatter()
-    ),
-    transports: [new winston.transports.Console(),]
-})
-logger.emerg(`Ivan is watching you`, {sd: {when: 'always'}})
