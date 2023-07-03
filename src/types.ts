@@ -8,4 +8,5 @@ export interface IConfig {
     host?: string
     appName?: string
     procId?: string | number
+    dateFormatter?: (date: Date) => string
 }

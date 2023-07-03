@@ -49,9 +49,11 @@ export const createSyslogFormatter = (config?: IConfig) => {
     return winston.format.combine(
         winston.format.timestamp(),
         winston.format.printf((info) => {
-                const {timestamp, level, message, sd} = info
+                const {level, message, sd} = info
                 const pri = (facility * 8) + levelToSyslog[level]
                 const msgId = info.msgId || '-'
+
+                const timestamp = config.dateFormatter ? config.dateFormatter(new Date(info.timestamp)) : info.timestamp
 
                 return `<${pri}>${version} ${timestamp} ${host} ${appName} ${procId} ${msgId} ${formatSD(sd)} ${message}`
             },
