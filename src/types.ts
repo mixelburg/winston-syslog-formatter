@@ -4,8 +4,8 @@ export type StructuredData = {
 }
 export interface IConfig {
     facility?: number
-    version?: number
+    version?: string | number
     host?: string
     appName?: string
-    procId?: string
+    procId?: string | number
 }
