@@ -1,6 +1,6 @@
 {
   "name": "winston-syslog-formatter",
-  "version": "1.2.2",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "type": "module",
@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/mixelburg/winston-syslog-formatter.git",
   "dependencies": {
-    "@types/node": "^18.11.9",
-    "winston": "^3.8.2"
+    "winston": "^3.9.0"
   },
   "devDependencies": {
-    "typescript": "^4.9.3"
+    "@types/node": "^18.11.9",
+    "typescript": "^5.1.6"
   }
 }
