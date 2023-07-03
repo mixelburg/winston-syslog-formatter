@@ -51,7 +51,7 @@ export const createSyslogFormatter = (config?: IConfig) => {
         winston.format.printf((info) => {
                 const {timestamp, level, message, sd} = info
                 const pri = (facility * 8) + levelToSyslog[level]
-                const msgId = '-'
+                const msgId = info.msgId || '-'
 
                 return `<${pri}>${version} ${timestamp} ${host} ${appName} ${procId} ${msgId} ${formatSD(sd)} ${message}`
             },
